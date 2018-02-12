@@ -1,6 +1,6 @@
 class Solution {
     public int reverse(int x) {
-        long result = 0;
+        long result = 0; // need to put long here!!! not int!!! because there is problem about overflow!!!
         boolean sign = false;
         if(x == 0){
             result = 0;
@@ -9,7 +9,6 @@ class Solution {
         if(x<0){
             sign = true;
         }
-        System.out.println(sign);
         x = Math.abs(x);
         int n;
         ArrayList<Integer> nums = new ArrayList<>();
@@ -18,7 +17,6 @@ class Solution {
             x = x/10;
             nums.add(n);
         }
-        System.out.println(nums);
         int l = nums.size();
         for(int i=0; i<(l-1); i++){
             result = (int) (result + Math.pow(10,l-i-1)*nums.get(i));
