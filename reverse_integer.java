@@ -34,3 +34,30 @@ class Solution {
         return (int)result;
     }
 }
+
+// solution 2
+// Your runtime beats 34.75 % of java submissions.
+class Solution {
+    public int reverse(int x) {
+        long result = 0;
+        if(x==0){
+            return 0;
+        }
+        boolean sign = true;
+        if(x<0){
+            sign = false;
+        }
+        while(x!=0){
+            result = result * 10 + x % 10;
+            x = x / 10;
+        }
+        result = Math.abs(result);
+        if(result > Integer.MAX_VALUE){
+            return 0;
+        }
+        if(!sign){
+            result = -result;
+        }
+        return (int)result;       
+    }
+}
