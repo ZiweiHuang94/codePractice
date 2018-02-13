@@ -61,3 +61,33 @@ class Solution {
         return (int)result;       
     }
 }
+
+// no need for abs
+//Your runtime beats 34.75 % of java submissions
+class Solution {
+    public int reverse(int x) {
+        long result = 0;
+        while(x!=0){
+            result = result * 10 + x % 10;
+            x = x / 10;
+        }
+        long result_pos = Math.abs(result);
+        if(result_pos > Integer.MAX_VALUE){
+            return 0;
+        }
+        return (int)result;
+        
+    }
+}
+
+// clean
+public int reverse(int x) {
+        long rev= 0;
+        while( x != 0){
+            rev= rev*10 + x % 10;
+            x= x/10;
+            if( rev > Integer.MAX_VALUE || rev < Integer.MIN_VALUE)
+                return 0;
+        }
+        return (int) rev;
+    }
