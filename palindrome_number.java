@@ -23,3 +23,22 @@ class Solution {
         return true;
     }
 }
+
+//Your runtime beats 94.28 % of java submissions
+class Solution {
+    public boolean isPalindrome(int x) {
+        int y = x;
+        if(x<0){
+            return false;
+        }
+        if(x<10 && x>-1){
+            return true;
+        }
+        int rev = 0;
+        while(x!=0){
+            rev = 10 * rev + x % 10;
+            x = x / 10;
+        }
+        return y == rev;
+    }
+}
